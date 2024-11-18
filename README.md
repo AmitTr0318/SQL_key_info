@@ -12,12 +12,12 @@ Chapter:- SQL Advanced: Finance Analytics**
 	SELECT * FROM dim_customer WHERE customer like "%croma%" AND market="india";
 
 -- b. Get all the sales transaction data from fact_sales_monthly table for that customer(croma: 90002002) in the fiscal_year 2021
-	SELECT * FROM fact_sales_monthly 
-	WHERE 
-            customer_code=90002002 AND
-            YEAR(DATE_ADD(date, INTERVAL 4 MONTH))=2021 
-	ORDER BY date asc
-	LIMIT 100000;
+SELECT * FROM fact_sales_monthly 
+WHERE 
+customer_code=90002002 AND
+YEAR(DATE_ADD(date, INTERVAL 4 MONTH))=2021
+ORDER BY date asc
+LIMIT 100000;
 
 -- c. create a function 'get_fiscal_year' to get fiscal year by passing the date
 	CREATE FUNCTION `get_fiscal_year`(calendar_date DATE) 
